@@ -302,12 +302,7 @@ MIT — see `LICENSE`.
 
 Group: G8
 
-> Replace the placeholders below with real member names before submission:
-
-- <name 1>
-- <name 2>
-- <name 3>
-
+Nguyễn Đức Tài - XB-DN26-042
 ---
 
 *Starter scaffold from the XBrain W6 side challenge —
