@@ -1,25 +1,20 @@
 # sample_output/
 
-These files are **illustrative examples** showing the shape of `costctl`
-output. They are NOT real account data.
+These files are real outputs captured from the G8 AWS workshop account on
+2026-05-22 in `us-west-2`.
 
-When you submit, replace each `*_example.txt` with a real output from running
-`costctl` against your workshop account. Then delete the example files.
-
-## How to produce real samples
+Captured commands:
 
 ```bash
-./costctl.py list ec2 > sample_output/list_ec2_$(date +%F).txt
-./costctl.py list ec2 --missing-tag Application > sample_output/list_ec2_missing_app_$(date +%F).txt
-./costctl.py cost --tag Application=<your-app> --days 7 > sample_output/cost_<your-app>_$(date +%F).txt
+python costctl.py --region us-west-2 list ec2
+python costctl.py --region us-west-2 list ec2 --missing-tag Application
+python costctl.py --region us-west-2 cost --tag Application=HealthBot --days 7
 ```
 
-The trainer will `git clone` your repo, follow the README, and expect to
-reproduce roughly these outputs (allowing for natural drift in timestamps and
-resource lists between snapshots).
+Current files:
 
-## Anti-pattern
+- `list_ec2_2026-05-22.txt`
+- `list_ec2_missing_app_2026-05-22.txt`
+- `cost_HealthBot_2026-05-22.txt`
 
-Don't paste fabricated output. If `costctl list ec2` against your account
-returns 0 rows, commit that — it's a valid output. Don't invent fake instance
-IDs to make the sample look "interesting".
+The old `*_example.txt` template files were removed.
