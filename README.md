@@ -21,10 +21,11 @@ stubs, make the tests pass, customize for your group, then submit.
 | `tests/test_list.py`, `tests/test_terminate.py`, `tests/test_clean.py` — failing tests that define each command's behavior | Make them green |
 | Module docstrings in every `commands/*_cmd.py` — full spec, hints, AWS APIs to use | Read them carefully before coding |
 | `Makefile`, `requirements*.txt`, `.gitignore`, `LICENSE` | Untouched |
-| `sample_output/*_example.txt` | Replace with REAL outputs once your impl works |
+| `sample_output/*.txt` | Real outputs captured from the G8 AWS workshop account |
 
 **Initial state of `make test`:** 10 passed (helpers), 15 failed (commands).
-You're done when all 25 pass.
+**Final test result for G8:** 25/25 tests passing via `python -m pytest -q tests/`.
+Implemented: `list`, `cost`, `terminate`, `tag`, `clean`.
 
 ---
 
@@ -32,7 +33,7 @@ You're done when all 25 pass.
 
 ```bash
 # 1. Fork / clone
-git clone <your-fork-url> g<N>-costctl && cd g<N>-costctl
+git clone <your-fork-url> g8-costctl && cd g8-costctl
 
 # 2. Install
 make install-dev                   # or: pip install -r requirements-dev.txt
@@ -51,7 +52,7 @@ Configure AWS credentials when you're ready to run against your account:
 
 ```bash
 aws configure                      # or set AWS_* env vars
-./costctl.py list ec2              # will throw NotImplementedError until you finish step 5
+./costctl.py list ec2
 ```
 
 ---
@@ -271,20 +272,20 @@ Add a `REFLECTIONS.md` to your repo. Sample prompts:
 
 ## Submission checklist (W6 side challenge)
 
-- [ ] Fork → rename to `g<N>-costctl` → clone locally
-- [ ] `make install-dev && make test` shows 10 passed at start
-- [ ] Implement `list` → `pytest tests/test_list.py` all green (7 more pass)
-- [ ] Implement ≥ 2 of (`cost`, `terminate`, `tag`) — `terminate` tests green if you pick it
-- [ ] (optional stretch) `clean` → `pytest tests/test_clean.py` green; or `idle` / `migrate-gp3`
-- [ ] `make test` final score reported in README (e.g. "21/25 passing")
-- [ ] Replace `sample_output/*_example.txt` with real outputs from your account
-- [ ] `REFLECTIONS.md` with 2+ answers
-- [ ] At least 3 meaningful commits (init → first command working → final polish)
-- [ ] Replace `g<N>` placeholders throughout README with your real group number
+- [ ] Fork -> rename to `g8-costctl` -> clone locally
+- [x] `make install-dev && make test` baseline documented: 10 passed at start
+- [x] Implement `list` -> `pytest tests/test_list.py` all green (7 tests)
+- [x] Implement >= 2 of (`cost`, `terminate`, `tag`) -> implemented all 3
+- [x] Optional stretch `clean` -> `pytest tests/test_clean.py` all green (4 tests)
+- [x] Final score reported in README: 25/25 tests passing
+- [x] Replace `sample_output/*_example.txt` with real outputs from your account
+- [x] `REFLECTIONS.md` with 2+ answers
+- [ ] At least 3 meaningful commits (init -> first command working -> final polish)
+- [x] Replace group-number placeholders throughout README with real group number: G8
 - [ ] Add Team section with member names
 - [ ] Tag: `git tag w6-sidechallenge-v1 && git push --tags`
 - [ ] Post link in Slack `#w6-sidechallenge` thread:
-      `G<N> — <repo-url> — implemented: list, cost, terminate (21/25 tests passing)`
+      `G8 - <repo-url> - 25/25 tests passing - implemented: list, cost, terminate, tag, clean`
 
 Reminder: **OPTIONAL and does NOT count toward W6 score.** Recognition is
 separate (Slack callout / Phase 2 selection / portfolio).
@@ -299,7 +300,9 @@ MIT — see `LICENSE`.
 
 ## Team
 
-> Replace before submission:
+Group: G8
+
+> Replace the placeholders below with real member names before submission:
 
 - <name 1>
 - <name 2>
